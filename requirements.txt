@@ -1,0 +1,6 @@
+kafka-python
+influxdb-client
+pandas
+matplotlib
+json5
+datetime
