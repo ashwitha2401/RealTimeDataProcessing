@@ -1,11 +1,11 @@
-### Real-time Data Processing and Visualization
+# Real-time Data Processing and Visualization
 
 ## Overview
 This project implements a real-time data pipeline consisting of three components:
 
-# 1. Data Generator: Produces random messages containing a color name and a numerical value, then publishes them to a Kafka topic.
-# 2. Worker: Consumes messages from Kafka, processes them, aggregates numerical values by color, and stores the results in InfluxDB.
-# 3. Visualization Dashboard: Queries InfluxDB and visualizes the aggregated data over time using Matplotlib.
+### 1. Data Generator: Produces random messages containing a color name and a numerical value, then publishes them to a Kafka topic.
+### 2. Worker: Consumes messages from Kafka, processes them, aggregates numerical values by color, and stores the results in InfluxDB.
+### 3. Visualization Dashboard: Queries InfluxDB and visualizes the aggregated data over time using Matplotlib.
 
 Technologies Used
 - Python for scripting
