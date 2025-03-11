@@ -5,7 +5,8 @@ from datetime import datetime
 
 #InfluxDB connection details
 url = "http://localhost:8086"  # Ensure this matches your InfluxDB URL
-token = "GdhCs0W87zhB1rxKAnnLb54RN3T9VTeQ6FcAOPqplJRHEXUo1X-Pde4zbymS0-DfL4eg23JlKj04IFAssztEXw=="
+token="0dzVjCd_BCjRSrZJe86cTw7k4IoqYN9b47Mxv5ekjzeusoFMBTOthamr7zNtl5ZwPtV_oUtvA1KJq8ZX3n1g5A=="
+#token = "GdhCs0W87zhB1rxKAnnLb54RN3T9VTeQ6FcAOPqplJRHEXUo1X-Pde4zbymS0-DfL4eg23JlKj04IFAssztEXw=="
 org = "Linq"
 bucket = "realtime_data"
 
@@ -15,14 +16,14 @@ query_api = client.query_api()
 
 #Query data
 query = '''
-from(bucket: "metrics")
-  |> range(start: -1h)  #This Retrieves the ata from the last hour
+from(bucket: "realtime_data")
+  |> range(start: -1h)
   |> filter(fn: (r) => r["_measurement"] == "color_metrics")
   |> filter(fn: (r) => r["_field"] == "value")
   |> filter(fn: (r) => r["color"] == "blue" or r["color"] == "green" or r["color"] == "red" or r["color"] == "yellow")
-  |> group(columns: ["color"])  #To Group the data by color
-  |> aggregateWindow(every: 10m, fn: mean, createEmpty: false)  #Aggregate the values over 10-minute windows
-  |> yield(name: "mean_values")  #To Output the aggregated data
+  |> group(columns: ["color"])
+  |> aggregateWindow(every: 1m, fn: mean, createEmpty: false)
+  |> yield(name: "mean_values")
 '''
 
 tables = query_api.query(query)
