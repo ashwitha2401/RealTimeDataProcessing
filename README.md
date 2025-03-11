@@ -17,8 +17,8 @@ Technologies Used
 Installation & Setup
 
 1. Clone the Repository
-git clone <your-repo-url>
-cd <your-repo-folder>
+git clone https://github.com/ashwitha2401/RealTimeDataProcessing.git
+cd RealTimeDataProcessing
 
 2. Start the Docker Containers
 docker-compose up -d
@@ -33,16 +33,10 @@ docker exec -it <container_id> kafka-topics --create --topic color_data --bootst
 1. Open InfluxDB UI at: [http://localhost:8086](http://localhost:8086)
 2. Create an account and update the credentials in 'worker.py' and 'docker-compose.yml'.
 
-Token to use:
-GdhCs0W87zhB1rxKAnnLb54RN3T9VTeQ6FcAOPqplJRHEXUo1X-Pde4zbymS0-DfL4eg23JlKj04IFAssztEXw==
-
-
 5. Install Dependencies
 pip install -r requirements.txt
 
-
 Running the Pipeline
-
 1. Start the Data Generator
 python data_generator.py
 
