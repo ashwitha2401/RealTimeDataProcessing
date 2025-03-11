@@ -16,31 +16,33 @@ Technologies Used
 
 ## Installation & Setup
 
-# 1. Clone the Repository
+### 1. Clone the Repository
 git clone https://github.com/ashwitha2401/RealTimeDataProcessing.git
 
 cd RealTimeDataProcessing
 
-# 2. Start the Docker Containers
+### 2. Start the Docker Containers
 
 docker-compose up -d
 
-# 3. Create Kafka Topic
+### 3. Create Kafka Topic
 
 Find the Kafka container ID: docker ps
 
 Then, create the Kafka topic:
 docker exec -it <container_id> kafka-topics --create --topic color_data --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
 
-# 4. Setup InfluxDB
+### 4. Setup InfluxDB
 
 1. Open InfluxDB UI at: [http://localhost:8086](http://localhost:8086)
+   -Username: admin
+   -Password: Ashwitha@26
 2. Create an account and update the credentials in 'worker.py' and 'docker-compose.yml'.
 
-# 5. Install Dependencies
+### 5. Install Dependencies
 pip install -r requirements.txt
 
-# Running the Pipeline
+### Running the Pipeline
 1. Start the Data Generator
 python data_generator.py
 
@@ -51,13 +53,13 @@ python worker.py
 python visualize.py
 
 
-# Project Structure
+## Project Structure
 
-# kafka-influxdb-project
-# ├── data_generator.py   Produces messages to Kafka
-# ├── worker.py           Consumes Kafka messages & writes to InfluxDB
-# ├── visualize.py        Queries InfluxDB & plots data
-# ├── requirements.txt    Python dependencies
-# ├── docker-compose.yml  Container setup for Kafka, Zookeeper, InfluxDB
-# ├── README.md           Project documentation
+### RealTimeDataProcessing
+### ├── data_generator.py   Produces messages to Kafka
+### ├── worker.py           Consumes Kafka messages & writes to InfluxDB
+### ├── visualize.py        Queries InfluxDB & plots data
+### ├── requirements.txt    Python dependencies
+### ├── docker-compose.yml  Container setup for Kafka, Zookeeper, InfluxDB
+### ├── README.md           Project documentation
 
